@@ -1,4 +1,5 @@
-class WorkingDayValidateResult {
+class ValidationResult {
+
     isValid: boolean
     message: string
 
@@ -8,4 +9,4 @@ class WorkingDayValidateResult {
     }
 }
 
-export default WorkingDayValidateResult
+export default ValidationResult;

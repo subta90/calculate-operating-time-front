@@ -1,14 +1,15 @@
 <script lang="ts">
 import WorkingDays from './components/WorkingDays.svelte';
+import CurrentOperatingTime from './components/CurrentOperatingTime.svelte';
 
-let workingDays;
+let workingDays: number;
+let currentOperatingTime: number;
 </script>
 
 <main>
 	<div class="input">
-		<div class="workingDaysContainer">
-			<WorkingDays bind:workingDays={workingDays}></WorkingDays>		
-		</div>
+		<WorkingDays bind:workingDays={workingDays}></WorkingDays>		
+		<CurrentOperatingTime bind:currentOperatingTime={currentOperatingTime}></CurrentOperatingTime>
 	</div>	
 </main>
 
@@ -19,10 +20,9 @@ let workingDays;
 		margin: 0 auto;
 	}
 
-	.workingDaysContainer {
-		list-style: none;
-		overflow: hidden;
-		display:inline-flex;
+	.input {
+		display: flex;
+		flex-direction: column;
 	}
 
 </style>

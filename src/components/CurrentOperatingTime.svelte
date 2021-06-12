@@ -1,20 +1,20 @@
 <script lang="ts">
-    import { validateWorkingDays } from "../util/InputValidator.js";
-    export let workingDays: number;
+    import { validateCurrentOperatingTime } from "../util/InputValidator.js";
+    export let currentOperatingTime: number;
 
-    $: validationResult = validateWorkingDays(workingDays);
+    $: validationResult = validateCurrentOperatingTime(currentOperatingTime);
 </script>
 
 <div class="container">
-    <div class="title">今月の稼働日数を入力:</div>
+    <div class="title">現在の稼働時間を入力:</div>
     <input
-        class="inputWorkingDays"
+        class="inputCurrentOperatingTime"
         type="number"
-        bind:value={workingDays}
+        bind:value={currentOperatingTime}
         class:validField={validationResult.isValid}
         class:invalidField={!validationResult.isValid}
     />
-    <div class="displayWorkingDays">
+    <div class="displayCurrentOperatingTime">
         {validationResult.message}
     </div>
 </div>
@@ -28,7 +28,7 @@
         white-space: nowrap;
     }
 
-    .inputWorkingDays {
+    .inputCurrentOperatingTime {
         height: 24px;
         margin-left: 10px;
     }
@@ -41,7 +41,7 @@
         border-color: red;
     }
 
-    .displayWorkingDays {
+    .displayCurrentOperatingTime {
         margin-left: 20px;
     }
 </style>
