@@ -1,6 +1,6 @@
 import ValidationResult from "../model/ValidationResult";
 
-export function validateWorkingDays(workingDays: number): ValidationResult {
+export const validateWorkingDays = (workingDays: number): ValidationResult => {
     const workingDaysUpperLimit = 31
 
     if (workingDays === undefined) {
@@ -12,7 +12,7 @@ export function validateWorkingDays(workingDays: number): ValidationResult {
     return new ValidationResult(true, `今月の稼働日数は ${workingDays} です`);
 }
 
-export function validateCurrentOperatingTime(operatingTime: number): ValidationResult {
+export const validateCurrentOperatingTime = (operatingTime: number): ValidationResult => {
     const currentOperatingTimeLowerLimit = 0
 
     if (operatingTime === undefined) {
@@ -23,5 +23,5 @@ export function validateCurrentOperatingTime(operatingTime: number): ValidationR
         return new ValidationResult(false, "時間がマイナスになってます");
     }
 
-    return new ValidationResult(true, `現在の稼働時間は ${operatingTime} です`);
+    return new ValidationResult(true, "");
 }

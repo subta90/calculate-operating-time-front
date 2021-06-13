@@ -1,16 +1,16 @@
 <script lang="ts">
-    import { validateCurrentOperatingTime } from "../util/InputValidator.js";
-    export let currentOperatingTime: number;
+    import { validateCurrentOperatingTime } from "../../util/InputValidator.js";
+    export let todaysOperatingTime: number;
 
-    $: validationResult = validateCurrentOperatingTime(currentOperatingTime);
+    $: validationResult = validateCurrentOperatingTime(todaysOperatingTime);
 </script>
 
 <div class="container">
-    <div class="title">現在の稼働時間を入力:</div>
+    <div class="title">今日の稼働時間を入力:</div>
     <input
         class="inputCurrentOperatingTime"
         type="number"
-        bind:value={currentOperatingTime}
+        bind:value={todaysOperatingTime}
         class:validField={validationResult.isValid}
         class:invalidField={!validationResult.isValid}
     />

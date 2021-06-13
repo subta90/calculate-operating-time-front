@@ -1,16 +1,24 @@
 <script lang="ts">
-import WorkingDays from './components/WorkingDays.svelte';
-import CurrentOperatingTime from './components/CurrentOperatingTime.svelte';
+	import Router from 'svelte-spa-router';
+	import Main from "./components/Main/Main.svelte";
+	import StartMonth from "./components/StartMonth/StartMonth.svelte";
+	import Modal from 'svelte-simple-modal';
 
-let workingDays: number;
-let currentOperatingTime: number;
+	let selectedMonth = 1;
+	let workingDays = 20;
+
+	const routes = {
+		"/": StartMonth,
+		"/main": Main,
+		"*": Main,
+	};
 </script>
 
 <main>
-	<div class="input">
-		<WorkingDays bind:workingDays={workingDays}></WorkingDays>		
-		<CurrentOperatingTime bind:currentOperatingTime={currentOperatingTime}></CurrentOperatingTime>
-	</div>	
+	<h1>稼働時間計算くん</h1>
+	<Modal>
+		<Router routes={routes}></Router>
+	</Modal>
 </main>
 
 <style lang="scss">
@@ -19,10 +27,4 @@ let currentOperatingTime: number;
 		padding: 1em;
 		margin: 0 auto;
 	}
-
-	.input {
-		display: flex;
-		flex-direction: column;
-	}
-
 </style>
