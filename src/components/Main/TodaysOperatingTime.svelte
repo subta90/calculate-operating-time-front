@@ -10,6 +10,7 @@
     <input
         class="inputCurrentOperatingTime"
         type="number"
+        step="0.1"
         bind:value={todaysOperatingTime}
         class:validField={validationResult.isValid}
         class:invalidField={!validationResult.isValid}
